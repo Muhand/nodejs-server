@@ -13,4 +13,4 @@ Now, clone this repository onto your local disk and then run `yarn` this should 
 
 Finally, run the server by typing `yarn dev` in the console.
 
-**NOTE** Look at the different scripts in [package.json](package.json) if you wish to run a different script.
+*NOTE Look at the different scripts in [package.json](package.json) if you wish to run a different script.*
