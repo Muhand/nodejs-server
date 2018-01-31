@@ -1,0 +1,46 @@
+{
+  "name": "nodejs-server",
+  "version": "1.0.0",
+  "description": "A basic nodejs server",
+  "main": "index.js",
+  "repository": "https://github.com/Muhand/nodejs-server.git",
+  "author": "Muhand Jumah",
+  "license": "MIT",
+  "private": false,
+  "engines": {
+    "node": "8.9.3"
+  },
+  "scripts": {
+    "dev": "SET NODE_ENV=development & nodemon -w src --exec \"babel-node src --presets env,stage-0\"",
+    "build": "babel src -s -D -d dist --presets env,stage-0",
+    "start": "SET NODE_ENV=production pm2 start dist",
+    "prestart": "yarn -s build",
+    "lint": "eslint src"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "http": "^0.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.16.0"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  }
+}
