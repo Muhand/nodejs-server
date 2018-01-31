@@ -1,5 +1,7 @@
-import Forbidden from './forbidden/';
+import Forbidden from './forbidden';
+import Welcome from './welcome';
 
 export default {
-  Forbidden
+  Forbidden,
+  Welcome
 };

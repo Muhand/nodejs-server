@@ -1,9 +1,5 @@
-import Controllers from './controllers/';
-import Jobs from './jobs/';
-import Routes from './routes/';
+import V1 from './v1/';
 
 export default {
-  Controllers,
-  Jobs,
-  Routes
+  V1
 };

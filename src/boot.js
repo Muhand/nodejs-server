@@ -14,7 +14,7 @@ it will make life a lot easier when using socket.io
 import http from 'http';
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './app/api/v1/routes';
+import api from './app/api/v1'
 import config from './config/index'
 
 export default function boot(callback){
@@ -41,13 +41,12 @@ export default function boot(callback){
   }));
 
   //Prefix routes with the api version extension
-  app.use(config.boot.v1API, routes);
+  app.use(config.boot.v1API, api.Routes);
 
-  // catch 401 and forward to error handler
+  // catch 403 and forward to error handler
   app.use( (req, res) => {
-    res.status = 401;
-    res.writeHead(res.status, {'Content-Type':'application/json'});
-    res.end(JSON.stringify({MESSAGE:'ERROR'}));
+    let payload = api.Payloads.Defined.Forbidden;
+    api.Jobs.Response(res, payload.status_code, payload);
   });
 
   /*
